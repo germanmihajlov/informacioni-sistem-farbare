@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-/* ================== PODACI ZA IZMENU ================== */
+// PODACI ZA IZMENU
 $edit_proizvod = null;
 if (isset($_GET['edit'])) {
     $id = (int) $_GET['edit'];
@@ -67,7 +67,7 @@ if (isset($_GET['edit'])) {
     $edit_proizvod = mysqli_fetch_assoc($res);
 }
 
-/* ================== KATEGORIJE ================== */
+// KATEGORIJE
 $kategorije = mysqli_query($db, "SELECT * FROM kategorija_proizvoda");
 ?>
 
@@ -117,7 +117,7 @@ $kategorije = mysqli_query($db, "SELECT * FROM kategorija_proizvoda");
 </nav>
 
 
-<!-- DODAVANJE -->
+// DODAVANJE
 <div class="box">
     <h2>Dodaj proizvod</h2>
     <form method="post">
@@ -155,7 +155,7 @@ $kategorije = mysqli_query($db, "SELECT * FROM kategorija_proizvoda");
     </form>
 </div>
 
-<!-- IZMENA -->
+// IZMENA
 <?php if ($edit_proizvod): ?>
 <div class="box">
     <h2>Izmena proizvoda</h2>
@@ -200,7 +200,7 @@ $kategorije = mysqli_query($db, "SELECT * FROM kategorija_proizvoda");
 
 <div class="message"><?= $message ?></div>
 
-<!-- TABELA -->
+// TABELA
 <table>
 <tr>
     <th>ID</th>

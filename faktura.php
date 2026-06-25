@@ -7,7 +7,7 @@ if (!isset($_GET['id'])) {
 
 $id_fakture = (int)$_GET['id'];
 
-/* ================== FAKTURA + VEZANA PORUDŽBINA ================== */
+// FAKTURA + VEZANA PORUDŽBINA
 $faktura = mysqli_fetch_assoc(mysqli_query($db,
     "SELECT f.id_fakture,
             f.datum,
@@ -28,7 +28,7 @@ if (!$faktura) {
 
 $id_porudzbine = $faktura['id_porudzbine'];
 
-/* ================== STAVKE ================== */
+// STAVKE
 $stavke = mysqli_query($db,
     "SELECT pr.naziv,
             s.kolicina,
@@ -39,7 +39,7 @@ $stavke = mysqli_query($db,
      WHERE s.id_porudzbine = $id_porudzbine"
 );
 
-/* ================== UKUPNO ================== */
+//  UKUPNO
 $suma = mysqli_fetch_assoc(mysqli_query($db,
     "SELECT SUM(kolicina * cena) AS ukupno
      FROM stavka_porudzbine

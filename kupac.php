@@ -10,7 +10,7 @@ $id_zaposlenog = $_SESSION['id_zaposlenog'];
 
 $message = "";
 
-// ================== DODAVANJE KUPCA ==================
+//  DODAVANJE KUPCA 
 if (isset($_POST['create'])) {
     $naziv_firme = mysqli_real_escape_string($db, $_POST['naziv_firme']);
     $adresa = mysqli_real_escape_string($db, $_POST['adresa']);
@@ -27,7 +27,7 @@ if (isset($_POST['create'])) {
     }
 }
 
-// ================== IZMENA KUPCA ==================
+// IZMENA KUPCA 
 if (isset($_POST['update'])) {
     $id_kupca = $_POST['id_kupca'];
     $naziv_firme = mysqli_real_escape_string($db, $_POST['naziv_firme']);
@@ -49,7 +49,7 @@ if (isset($_POST['update'])) {
     }
 }
 
-// ================== UČITAVANJE KUPCA ZA IZMENU ==================
+// UČITAVANJE KUPCA ZA IZMENU 
 $edit_kupac = null;
 if (isset($_GET['edit'])) {
     $id = $_GET['edit'];
@@ -103,7 +103,7 @@ if (isset($_GET['edit'])) {
 </nav>
 
 
-<!-- ================== FORMA ZA DODAVANJE ================== -->
+//FORMA ZA DODAVANJE
 <div class="box">
     <h2>Dodaj novog kupca (firmu)</h2>
     <form method="post">
@@ -123,7 +123,7 @@ if (isset($_GET['edit'])) {
     </form>
 </div>
 
-<!-- ================== FORMA ZA IZMENU ================== -->
+//FORMA ZA IZMENU
 <?php if ($edit_kupac): ?>
 <div class="box">
     <h2>Izmena kupca</h2>
@@ -147,7 +147,7 @@ if (isset($_GET['edit'])) {
 </div>
 <?php endif; ?>
 
-<!-- ================== TABELA KUPACA ================== -->
+// TABELA KUPACA
 <?php
 $result = mysqli_query($db, "SELECT * FROM kupac");
 if ($result && mysqli_num_rows($result) > 0) {

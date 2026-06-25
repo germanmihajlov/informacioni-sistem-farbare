@@ -10,7 +10,7 @@ $id_zaposlenog = $_SESSION['id_zaposlenog'];
 $GOTOVINSKI_KUPAC_ID = 5;
 $message = "";
 
-/* ================== START PORUDŽBINE ================== */
+// START PORUDŽBINE
 if (isset($_POST['start_order'])) {
     mysqli_query($db,
         "INSERT INTO porudzbina (id_kupca, id_zaposlenog, datum, status)
@@ -19,7 +19,7 @@ if (isset($_POST['start_order'])) {
     $_SESSION['id_porudzbine'] = mysqli_insert_id($db);
 }
 
-/* ================== PROMENA KUPCA ================== */
+// PROMENA KUPCA
 if (isset($_POST['set_kupac']) && isset($_SESSION['id_porudzbine'])) {
     $id_porudzbine = $_SESSION['id_porudzbine'];
     $id_kupca = (int)$_POST['id_kupca'];
@@ -31,7 +31,7 @@ if (isset($_POST['set_kupac']) && isset($_SESSION['id_porudzbine'])) {
     );
 }
 
-/* ================== DODAVANJE STAVKE ================== */
+// DODAVANJE STAVKE
 if (isset($_POST['add_item']) && isset($_SESSION['id_porudzbine'])) {
     $id_porudzbine = $_SESSION['id_porudzbine'];
     $id_proizvoda = (int)$_POST['id_proizvoda'];
@@ -53,7 +53,7 @@ if (isset($_POST['add_item']) && isset($_SESSION['id_porudzbine'])) {
     }
 }
 
-//Zavrsetak porudzbine
+// Zavrsetak porudzbine
 
 if (isset($_POST['finish_order']) && isset($_SESSION['id_porudzbine'])) {
     $id = $_SESSION['id_porudzbine'];
@@ -153,7 +153,7 @@ button { padding:6px 10px; cursor:pointer; }
 <div class="box">
 
 <?php
-/* ================== REZIME ================== */
+// REZIME
 if (isset($_SESSION['zavrsena_porudzbina'])):
 $id = $_SESSION['zavrsena_porudzbina'];
 
@@ -238,7 +238,7 @@ if ($kupac['naziv_firme'] === 'Gotovinski kupac') {
 </form>
 
 <?php else:
-/* ================== PORUDŽBINA U TOKU ================== */
+//  PORUDŽBINA U TOKU
 
 $id_porudzbine = $_SESSION['id_porudzbine'];
 $trenutni_kupac = mysqli_fetch_assoc(mysqli_query($db,

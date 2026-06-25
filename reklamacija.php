@@ -2,7 +2,7 @@
 require_once('konekcija.php');
 session_start();
 
-/* ================== PROMENA STATUSA REKLAMACIJE ================== */
+// PROMENA STATUSA REKLAMACIJE
 if (isset($_POST['update_status'])) {
     $id_reklamacije = (int)$_POST['id_reklamacije'];
     $novi_status = mysqli_real_escape_string($db, $_POST['status']);
@@ -28,7 +28,7 @@ if (isset($_POST['update_status'])) {
 
 $message = "";
 
-/* ================== DODAVANJE REKLAMACIJE ================== */
+// DODAVANJE REKLAMACIJE
 if (isset($_POST['dodaj_reklamaciju'])) {
     $id_porudzbine = (int)$_POST['id_porudzbine'];
     $opis = mysqli_real_escape_string($db, $_POST['opis']);

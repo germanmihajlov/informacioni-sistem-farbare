@@ -10,7 +10,7 @@ if (!isset($_SESSION['id_zaposlenog'])) {
 $id_zaposlenog = $_SESSION['id_zaposlenog'];
 $message = "";
 
-/* ================== START NABAVKE ================== */
+// START NABAVKE
 if (isset($_POST['start_nabavka'])) {
     $id_dobavljaca = (int)$_POST['id_dobavljaca'];
 
@@ -22,7 +22,7 @@ if (isset($_POST['start_nabavka'])) {
     $_SESSION['id_nabavke'] = mysqli_insert_id($db);
 }
 
-/* ================== BRISANJE STAVKE (DOK JE U TOKU) ================== */
+// BRISANJE STAVKE (DOK JE U TOKU)
 if (isset($_POST['delete_item']) && isset($_SESSION['id_nabavke'])) {
     $id_nabavke = $_SESSION['id_nabavke'];
     $id_stavke = (int)$_POST['id_stavke'];
@@ -40,7 +40,7 @@ if (isset($_POST['delete_item']) && isset($_SESSION['id_nabavke'])) {
     }
 }
 
-/* ================== DODAVANJE STAVKE ================== */
+// DODAVANJE STAVKE
 if (isset($_POST['add_item']) && isset($_SESSION['id_nabavke'])) {
     $id_nabavke = $_SESSION['id_nabavke'];
     $id_proizvoda = (int)$_POST['id_proizvoda'];
@@ -58,7 +58,7 @@ if (isset($_POST['add_item']) && isset($_SESSION['id_nabavke'])) {
     }
 }
 
-/* ================== ZAVRŠETAK NABAVKE (TRANSAKCIJA) ================== */
+// ZAVRŠETAK NABAVKE (TRANSAKCIJA)
 if (isset($_POST['finish_nabavka']) && isset($_SESSION['id_nabavke'])) {
     $id_nabavke = $_SESSION['id_nabavke'];
 

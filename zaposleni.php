@@ -9,7 +9,7 @@ if (!isset($_SESSION['id_zaposlenog'])) {
 
 $message = "";
 
-/* OBRADA POST ZAHTEVA  */
+// OBRADA POST ZAHTEVA
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $ime_prezime_z = mysqli_real_escape_string($db, $_POST['ime_prezime_z'] ?? '');
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-/*  GET ZA IZMENU  */
+// GET ZA IZMENU
 $edit_zaposleni = null;
 if (isset($_GET['edit'])) {
     $id = (int) $_GET['edit'];
